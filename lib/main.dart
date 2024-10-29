@@ -12,7 +12,11 @@ class BiblicalLanguagesApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
-      home: WelcomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => WelcomeScreen(),
+        '/home': (context) => HomeScreen(), // HomeScreen is now defined below
+      },
     );
   }
 }
@@ -21,11 +25,10 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Remove the app bar for a cleaner look
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background.png'), // Optional background image
+            image: AssetImage('assets/images/background.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -44,7 +47,7 @@ class WelcomeScreen extends StatelessWidget {
                   'Welcome to the Biblical Languages App. May God bless your learning experience.',
                   style: TextStyle(
                     fontSize: 24,
-                    color: Colors.blueGrey[800],
+                    color: Colors.amber,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
@@ -54,24 +57,39 @@ class WelcomeScreen extends StatelessWidget {
                   'Learn Biblical languages and deepen your faith.',
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.blueGrey[700],
+                    color: Colors.teal,
                   ),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 40),
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to the next screen (to be implemented)
+                    Navigator.pushNamed(context, '/home'); // Navigate to HomeScreen
                   },
                   child: Text('Get Started'),
                   style: ElevatedButton.styleFrom(
-		   backgroundColor: Colors.blueGrey, // Use backgroundColor instead of primary
-		 ),
+                    backgroundColor: Colors.yellow,
+                  ),
                 ),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+// Define HomeScreen
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Home'),
+      ),
+      body: Center(
+        child: Text('Welcome to the Home Screen!'),
       ),
     );
   }
