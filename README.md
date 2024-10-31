@@ -1,5 +1,5 @@
 # The Biblical Languages App
-An app to teach Biblical languages like Biblical Hebrew, Biblical/Koine Greek, Biblical Latin, Old Church Slavonic, and other languages.
+An app to teach Biblical languages like Biblical Hebrew, Biblical Aramaic, Biblical/Koine Greek, Biblical Latin, Old Church Slavonic, and other languages.
 
 A Flutter project.
 
